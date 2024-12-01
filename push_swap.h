@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:14:26 by nchencha          #+#    #+#             */
-/*   Updated: 2024/11/27 23:36:23 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/01 22:18:54 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,21 @@
 # include <limits.h>
 # include "libft.h"
 
+typedef struct s_list
+{
+	int				data;
+	struct s_list	*next;
+}					t_list;
+
+//t_list
+t_list *ft_lstnew(int data);
+t_list	*ft_lstlast(t_list *head);
+void	ft_lstadd_front(t_list **head, t_list *new_node);
+void	ft_lstadd_back(t_list **head, t_list *new_node);
+void	free_list(t_list **head);
+
+//utils
 void	error_exit(void);
+int		ft_lstsize(t_list *list);
+void	display_list(t_list *list); //Comment this out will use for debugging
 #endif
