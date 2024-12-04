@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 20:45:38 by nchencha          #+#    #+#             */
-/*   Updated: 2024/09/07 21:23:38 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:12:49 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	word_count(char *str, char c);
 static char	*fill_word(char *str, int start, int end);
-static void	ft_free(char **str_array, int count);
+static void	free_ft_split(char **str_array, int count);
 
 char	**ft_split(char *s, char c)
 {
@@ -38,7 +38,7 @@ char	**ft_split(char *s, char c)
 			end++;
 		array[i] = fill_word(s, start, end);
 		if (!array[i])
-			ft_free(array, i);
+			free_ft_split(array, i);
 		i++;
 	}
 	array[i] = NULL;
@@ -85,7 +85,7 @@ static char	*fill_word(char *str, int start, int end)
 	return (word);
 }
 
-static void	ft_free(char **str_array, int count)
+static void	free_ft_split(char **str_array, int count)
 {
 	int	i;
 
@@ -108,5 +108,5 @@ static void	ft_free(char **str_array, int count)
 // 		printf("'%s'\n", res[i]);
 // 		i++;
 // 	}
-// 	ft_free(res, i);
+// 	free_ft_split(res, i);
 // }
