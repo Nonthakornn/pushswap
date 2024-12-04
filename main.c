@@ -62,6 +62,8 @@ Overflow/Underflow -> Error\n
 
 Empty arguments -> Error
     “” 1
+    "  " 1 2 3
+    "      "
 Duplicates
     “1 2 3 4 1”
 
