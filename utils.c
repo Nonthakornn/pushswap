@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:14:15 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/01 22:15:25 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/06 22:01:03 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@ int	ft_lstsize(t_list *list)
 		list = list->next;
 	}
 	return (count);
+}
+
+void double_free(char **str)
+{
+	while (*str)
+	{
+		free(*str);
+		str++;
+	}
+	free(str);
 }
 
 //Remove this one will just use for debugging
