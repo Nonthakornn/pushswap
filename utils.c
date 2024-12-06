@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:14:15 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/06 22:01:03 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/06 23:49:01 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	error_exit(void)
 	exit(255);
 }
 
-int	ft_lstsize(t_list *list)
+int	ft_lstsize(t_stack *list)
 {
 	int	count;
 
@@ -33,23 +33,26 @@ int	ft_lstsize(t_list *list)
 
 void double_free(char **str)
 {
-	while (*str)
+	int i;
+
+	i = 0;
+	while (str[i])
 	{
-		free(*str);
+		free(str[i]);
 		str++;
 	}
 	free(str);
 }
 
 //Remove this one will just use for debugging
-void	display_list(t_list *list)
+void	display_stack(t_stack *list)
 {
-	t_list	*ptr;
+	t_stack	*ptr;
 
 	ptr = list;
 	while (ptr)
 	{
-		printf("%d ", ptr->data);
+		printf("%d ", ptr->nbr);
 		ptr = ptr->next;
 	}
 	printf("\n");

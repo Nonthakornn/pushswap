@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 13:56:15 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/06 22:06:37 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/07 00:03:21y nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,12 @@ static char	*fill_word(char *str, int start, int end)
 
 static void	free_ft_split(char **str)
 {
-	while (*str)
+	int i;
+
+	i = 0;
+	while (str[i])
 	{
-		free(*str);
+		free(str[i]);
 		str++;
 	}
 	free(str);
@@ -80,7 +83,10 @@ char	**ft_split(char *str, char sep)
 			end++;
 		arr[i] = fill_word(str, start, end);
 		if (!arr[i])
+		{
 			free_ft_split(arr);
+			return NULL;
+		}
 		i++;
 	}
 	arr[i] = NULL;

@@ -6,45 +6,83 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:14:40 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/06 22:02:37 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/07 00:07:08 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	init_stack(t_stack **stack, char **argv)
+{
+	t_stack	*new_node;
+	char	*join_str;
+	char	*temp;
+	char	**split_str;
+	int		i;
+
+	i = 1;
+	join_str = ft_strdup("");
+	while (argv[i])
+	{
+		temp = ft_strjoin(join_str, argv[i]);
+		free(join_str);
+		join_str = ft_strjoin(temp, " ");
+		free(temp);
+		i++;
+	}
+	split_str = ft_split(join_str, ' ');
+	free(join_str);
+	i = 0;
+	while(split_str[i] && split_str)
+	{
+		new_node = ft_lstnew(ft_atoi(split_str[i]));
+		ft_lstadd_back(stack, new_node);
+		i++;
+	}
+	//double_free(split_str);
+}
+
 int	main(int argc, char **argv)
 {
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	
+	stack_a = NULL;
+	stack_b = NULL;
 	if (argc < 2)
 		exit (0);
+	init_stack(&stack_a, argv);
+	display_stack(stack_a);
+	free_stack(&stack_a);
 }
 
 /*
 Checking my linklist
 int main()
 {
-	t_list *head;
-	t_list *node1;
-	t_list *node2;
+	t_stack *head;
+	t_stack *node1;
+	t_stack *node2;
 	
 	head = ft_lstnew(10);
 	node1 = ft_lstnew(20);
 	node2 = ft_lstnew(30);
 
 	printf("Default: ");
-	display_list(head);
+	display_stack(head);
 
 	printf("Add front: ");
 	ft_lstadd_front(&head,node1);
-	display_list(head);
+	display_stack(head);
 
 	printf("Size: %d\n", ft_lstsize(head));
 
-	t_list *last_node = ft_lstlast(head);
-	printf("Last Node: %d\n", last_node->data);
+	t_stack *last_node = ft_lstlast(head);
+	printf("Last Node: %d\n", last_node->nbr);
 
 	ft_lstadd_back(&head,node2);
-	display_list(head);
-	free_list(&head);
+	display_stack(head);
+	free_stack(&head);
 }
 */
 

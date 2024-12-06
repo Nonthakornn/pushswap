@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_list.c                                           :+:      :+:    :+:   */
+/*   t_stack.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,19 +12,19 @@
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(int data)
+t_stack	*ft_lstnew(int nbr)
 {
-	t_list	*new_node;
+	t_stack	*new_node;
 
-	new_node = malloc(sizeof(t_list));
+	new_node = malloc(sizeof(t_stack));
 	if (!new_node)
 		return (NULL);
-	new_node->data = data;
+	new_node->nbr = nbr;
 	new_node->next = NULL;
 	return (new_node);
 }
 
-void	ft_lstadd_front(t_list **head, t_list *new_node)
+void	ft_lstadd_front(t_stack **head, t_stack *new_node)
 {
 	if (!head || !new_node)
 		return ;
@@ -32,9 +32,9 @@ void	ft_lstadd_front(t_list **head, t_list *new_node)
 	*head = new_node;
 }
 
-t_list	*ft_lstlast(t_list *head)
+t_stack	*ft_lstlast(t_stack *head)
 {
-	t_list	*ptr;
+	t_stack	*ptr;
 
 	ptr = head;
 	if (!head)
@@ -44,7 +44,7 @@ t_list	*ft_lstlast(t_list *head)
 	return (ptr);
 }
 
-void	ft_lstadd_back(t_list **head, t_list *new_node)
+void	ft_lstadd_back(t_stack **head, t_stack *new_node)
 {
 	if (!head || !new_node)
 		return ;
@@ -57,9 +57,9 @@ void	ft_lstadd_back(t_list **head, t_list *new_node)
 		ft_lstlast(*head)->next = new_node;
 }
 
-void	free_list(t_list **head)
+void	free_stack(t_stack **head)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (!head)
 		return ;
