@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:14:15 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/06 23:49:01 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/09 11:40:30 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void double_free(char **str)
 	while (str[i])
 	{
 		free(str[i]);
-		str++;
+		i++;
 	}
 	free(str);
 }

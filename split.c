@@ -56,7 +56,7 @@ static void	free_ft_split(char **str)
 	while (str[i])
 	{
 		free(str[i]);
-		str++;
+		i++;
 	}
 	free(str);
 }
@@ -92,3 +92,15 @@ char	**ft_split(char *str, char sep)
 	arr[i] = NULL;
 	return (arr);
 }
+
+// int main(int ac, char **av)
+// {
+// 	int i = 0;
+// 	char **result = ft_split(av[1], ' ');
+// 	while (result[i])
+// 	{
+// 		printf("%s ", result[i]);
+// 		i++;
+// 	}
+// 	free_ft_split(result);
+// }
