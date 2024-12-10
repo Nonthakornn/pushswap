@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:14:26 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/06 23:27:09 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/09 23:50:00 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ void	error_exit(void);
 int		ft_lstsize(t_stack *list);
 void	double_free(char **str);
 void	display_stack(t_stack *list); //Comment this out will use for debugging
+
+//stack
+void	init_stack(t_stack **stack, char **argv);
+
+//parse
+int parse(char **split_argv);
 
 //split
 char **ft_split(char *str, char sep);

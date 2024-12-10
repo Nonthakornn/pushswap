@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 12:01:01 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/09 12:18:14 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/10 21:51:15 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	init_stack(t_stack **stack, char **argv)
 	join_str = join_and_trim(argv);
 	split_str = ft_split(join_str, ' ');
 	free(join_str);
+	if (!parse(split_str))
+		error_exit();
 	i = 0;
 	while (split_str[i])
 	{
@@ -64,3 +66,13 @@ void	init_stack(t_stack **stack, char **argv)
 	}
 	double_free(split_str);
 }
+
+/*
+	//Print split_str
+	while (split_str[i]) 
+	{
+		printf("%s ", split_str[i]);
+		i++;
+	}
+	printf("\n");
+*/

@@ -6,49 +6,19 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:14:40 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/07 00:07:08 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/10 21:55:32 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_stack(t_stack **stack, char **argv)
-{
-	t_stack	*new_node;
-	char	*join_str;
-	char	*temp;
-	char	**split_str;
-	int		i;
-
-	i = 1;
-	join_str = ft_strdup("");
-	while (argv[i])
-	{
-		temp = ft_strjoin(join_str, argv[i]);
-		free(join_str);
-		join_str = ft_strjoin(temp, " ");
-		free(temp);
-		i++;
-	}
-	split_str = ft_split(join_str, ' ');
-	free(join_str);
-	i = 0;
-	while(split_str[i] && split_str)
-	{
-		new_node = ft_lstnew(ft_atoi(split_str[i]));
-		ft_lstadd_back(stack, new_node);
-		i++;
-	}
-	//double_free(split_str);
-}
-
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	t_stack	*stack_b;
-	
+	// t_stack	*stack_b;
+
 	stack_a = NULL;
-	stack_b = NULL;
+	// stack_b = NULL;
 	if (argc < 2)
 		exit (0);
 	init_stack(&stack_a, argv);
@@ -124,4 +94,4 @@ ok_input
 Not sure error check with checker
 //./push_swap -> exit (0)
 ./push_swap 1 1 2 -> exit(255)
-*/ 
+*/
