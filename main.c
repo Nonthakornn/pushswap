@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:14:40 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/10 21:55:32 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/12 23:20:25 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,45 +15,32 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	// t_stack	*stack_b;
+	t_stack	*stack_b;
 
 	stack_a = NULL;
-	// stack_b = NULL;
+	stack_b = NULL;
 	if (argc < 2)
-		exit (0);
+		return (0);
 	init_stack(&stack_a, argv);
-	display_stack(stack_a);
+	// display_stack(stack_a);
+	if (!is_sorted(stack_a))
+	{
+		// printf("Stack is not sorted\n");
+		if (ft_lstsize(stack_a) == 2)
+		{
+			sa(&stack_a);
+			// display_stack(stack_a);
+		}
+		return (0);
+	}
+	// printf("Stack is sorted");
 	free_stack(&stack_a);
+	return (0);
 }
 
 /*
-Checking my linklist
-int main()
-{
-	t_stack *head;
-	t_stack *node1;
-	t_stack *node2;
-	
-	head = ft_lstnew(10);
-	node1 = ft_lstnew(20);
-	node2 = ft_lstnew(30);
-
-	printf("Default: ");
-	display_stack(head);
-
-	printf("Add front: ");
-	ft_lstadd_front(&head,node1);
-	display_stack(head);
-
-	printf("Size: %d\n", ft_lstsize(head));
-
-	t_stack *last_node = ft_lstlast(head);
-	printf("Last Node: %d\n", last_node->nbr);
-
-	ft_lstadd_back(&head,node2);
-	display_stack(head);
-	free_stack(&head);
-}
+Checking with checker
+ARG="2 1"; ./push_swap $ARG | ./checker_MAC $ARG
 */
 
 /*
@@ -94,4 +81,34 @@ ok_input
 Not sure error check with checker
 //./push_swap -> exit (0)
 ./push_swap 1 1 2 -> exit(255)
+*/
+
+/*
+Checking my linklist
+int main()
+{
+	t_stack *head;
+	t_stack *node1;
+	t_stack *node2;
+	
+	head = ft_lstnew(10);
+	node1 = ft_lstnew(20);
+	node2 = ft_lstnew(30);
+
+	printf("Default: ");
+	display_stack(head);
+
+	printf("Add front: ");
+	ft_lstadd_front(&head,node1);
+	display_stack(head);
+
+	printf("Size: %d\n", ft_lstsize(head));
+
+	t_stack *last_node = ft_lstlast(head);
+	printf("Last Node: %d\n", last_node->nbr);
+
+	ft_lstadd_back(&head,node2);
+	display_stack(head);
+	free_stack(&head);
+}
 */

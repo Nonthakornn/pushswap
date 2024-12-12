@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:14:26 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/09 23:50:00 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/12 23:10:10 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ typedef struct s_stack
 {
 	int				nbr;
 	int				index;
+	int				above_mid;
+	int				cheapest;
+	struct s_stack	*target_node;
 	struct s_stack	*next;
 	struct s_stack	*previous;
 }					t_stack;
@@ -48,5 +51,16 @@ int parse(char **split_argv);
 
 //split
 char **ft_split(char *str, char sep);
+
+//sort
+int	is_sorted(t_stack *stack);
+
+//Operation
+void sa(t_stack **stack_a);
+void sb(t_stack **stack_b);
+void ss(t_stack **stack_a, t_stack **stack_b);
+
+
+
 
 #endif
