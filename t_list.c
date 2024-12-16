@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_stack.c                                           :+:      :+:    :+:   */
+/*   t_list.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 22:02:13 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/01 22:19:40 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/16 17:14:24 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ t_stack	*ft_lstnew(int nbr)
 	new_node = malloc(sizeof(t_stack));
 	if (!new_node)
 		return (NULL);
+	new_node->previous = NULL;
 	new_node->nbr = nbr;
+	new_node->cheapest = 0;
 	new_node->next = NULL;
 	return (new_node);
 }
@@ -46,15 +48,21 @@ t_stack	*ft_lstlast(t_stack *head)
 
 void	ft_lstadd_back(t_stack **head, t_stack *new_node)
 {
+	t_stack	*last_node;
+
 	if (!head || !new_node)
 		return ;
 	if (!(*head))
 	{
 		*head = new_node;
-		return ;
+		new_node->previous = NULL;
 	}
 	else
-		ft_lstlast(*head)->next = new_node;
+	{
+		last_node = ft_lstlast(*head);
+		last_node->next = new_node;
+		new_node->previous = last_node;
+	}
 }
 
 void	free_stack(t_stack **head)
