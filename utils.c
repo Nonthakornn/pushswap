@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:14:15 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/12 22:12:37 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/13 14:28:29 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,26 @@ void double_free(char **str)
 		i++;
 	}
 	free(str);
+}
+
+t_stack	*find_biggest_node(t_stack *stack)
+{
+	long	max;
+	t_stack	*biggest_node;
+
+	if (!stack)
+		return NULL;
+	max = INT_MIN;
+	while (stack)
+	{
+		if (stack->nbr > max)
+		{
+			max = stack->nbr;
+			biggest_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (biggest_node);
 }
 
 //Remove this one will just use for debugging
