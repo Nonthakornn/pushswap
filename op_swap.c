@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 22:14:49 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/16 14:05:59 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/17 12:21:20 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,20 @@
 
 static void	swap(t_stack **head)
 {
-	t_stack	*current;
+	t_stack	*first;
+	t_stack	*second;
 
 	if (ft_lstsize(*head) < 2)
 		return ;
-	current = (*head)->next;
-	(*head)->next = (*head)->next->next;
-	current->next = (*head);
-	*(head) = current;
+	first = *head;
+	second = (*head)->next;
+	first->next = second->next;
+	if (second->next)
+		second->next = first;
+	second->next = first;
+	second->previous = first->previous;
+	first->previous = second;
+	*head = second;
 }
 
 void	sa(t_stack **stack_a)
