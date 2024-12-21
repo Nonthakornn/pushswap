@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 14:50:26 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/19 15:45:28 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/20 12:25:00 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ static void	push(t_stack **src, t_stack **dst)
 	if (*src)
 		(*src)->previous = NULL;
 	push_node->previous = NULL;
-	if (!(*dst))
+	if (!*dst)
 	{
-		(*dst) = push_node;
+		*dst = push_node;
 		push_node->next = NULL;
 	}
 	else
 	{
-		push_node->next = (*dst);
+		push_node->next = *dst;
 		push_node->next->previous = push_node;
 		(*dst) = push_node;
 	}
