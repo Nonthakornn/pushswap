@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:14:40 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/21 14:55:52 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/21 16:24:33 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ int	main(int argc, char **argv)
 		else if (ft_lstsize(stack_a) == 3)
 			sort_3(&stack_a);
 		else if (ft_lstsize(stack_a) == 4)
+		{
+			set_index(stack_a);
 			sort_4(&stack_a, &stack_b);
+		}
 		else
 			sort_n(&stack_a, &stack_b);
 	}
