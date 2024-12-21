@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 22:02:13 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/16 17:14:24 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/21 14:28:14 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,13 @@ t_stack	*ft_lstnew(int nbr)
 	return (new_node);
 }
 
-void	ft_lstadd_front(t_stack **head, t_stack *new_node)
-{
-	if (!head || !new_node)
-		return ;
-	new_node->next = *head;
-	*head = new_node;
-}
-
 t_stack	*ft_lstlast(t_stack *head)
 {
-	t_stack	*ptr;
-
-	ptr = head;
 	if (!head)
 		return (NULL);
-	while (ptr->next)
-		ptr = ptr->next;
-	return (ptr);
+	while (head->next)
+		head = head->next;
+	return (head);
 }
 
 void	ft_lstadd_back(t_stack **head, t_stack *new_node)

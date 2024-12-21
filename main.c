@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:14:40 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/16 19:23:02 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/21 14:55:52 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,19 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	init_stack(&stack_a, argv);
-	// display_stack(stack_a);
 	if (!is_sorted(stack_a))
 	{
 		if (ft_lstsize(stack_a) == 2)
 			sa(&stack_a);
 		else if (ft_lstsize(stack_a) == 3)
 			sort_3(&stack_a);
-		// display_stack(stack_a);
-		// return (0);
+		else if (ft_lstsize(stack_a) == 4)
+			sort_4(&stack_a, &stack_b);
+		else
+			sort_n(&stack_a, &stack_b);
 	}
-	// printf("Stack is sorted");
 	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }
 

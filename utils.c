@@ -6,7 +6,7 @@
 /*   By: nchencha <nchencha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:14:15 by nchencha          #+#    #+#             */
-/*   Updated: 2024/12/13 14:28:29 by nchencha         ###   ########.fr       */
+/*   Updated: 2024/12/21 15:08:12 by nchencha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	ft_lstsize(t_stack *list)
 	return (count);
 }
 
-void double_free(char **str)
+void	double_free(char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -44,26 +44,7 @@ void double_free(char **str)
 	free(str);
 }
 
-t_stack	*find_biggest_node(t_stack *stack)
-{
-	long	max;
-	t_stack	*biggest_node;
-
-	if (!stack)
-		return NULL;
-	max = INT_MIN;
-	while (stack)
-	{
-		if (stack->nbr > max)
-		{
-			max = stack->nbr;
-			biggest_node = stack;
-		}
-		stack = stack->next;
-	}
-	return (biggest_node);
-}
-
+/*
 //Remove this one will just use for debugging
 void	display_stack(t_stack *list)
 {
@@ -72,8 +53,9 @@ void	display_stack(t_stack *list)
 	ptr = list;
 	while (ptr)
 	{
-		printf("%d ", ptr->nbr);
+		printf("index %d: %d\n", ptr->index, ptr->nbr);
 		ptr = ptr->next;
 	}
 	printf("\n");
 }
+*/
